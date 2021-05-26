@@ -14,7 +14,8 @@ raspberry pi test
 [source code](./src/with_btn)
 
 
-![라즈베리 파이(Raspberry Pi) GPIO를 다뤄보기 - 파이썬](https://m.blog.naver.com/chandong83/220905339312)
+* 참고
+* [라즈베리 파이(Raspberry Pi) GPIO를 다뤄보기 - 파이썬](https://m.blog.naver.com/chandong83/220905339312)
 
 
 ![GPIO 설정](https://mblogthumb-phinf.pstatic.net/MjAxNzAxMDdfODkg/MDAxNDgzNzkyNTc1ODQx.Zdw5-gDt1C-gGmxLmFtIinNLpu3wi3URCGYTdVPmaakg.AfUxK97CsXchp0AEk5lJydHVXTVEkrhsgrxdft3V810g.JPEG.chandong83/image_5940415111483792559665.jpg?type=w800)
