@@ -3,7 +3,7 @@ raspberry pi test
 
 ## installation
 
-[opencv build shell script](./intall/pi_opencv_build_1.sh)
+[opencv build shell script](./install/pi_opencv_build_1.sh)
 
 * 참고
 * [Raspberry Pi 4에 Extra Module(contrib) 포함하여 OpenCV 4.5.1 설치하는 방법](https://webnautes.tistory.com/916)
