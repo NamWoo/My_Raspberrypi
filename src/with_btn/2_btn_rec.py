@@ -2,6 +2,7 @@
 import picamera            #picamera를 불러온다.
 import RPi.GPIO as GPIO    #GPIO 라이브러리
 from time import sleep     #sleep 라이브러리
+import datetime
 
 #보기 편하도록 미리 상수처럼 선언함
 HIGH = True                
@@ -49,7 +50,10 @@ try:
                 
                 if recStat == False:
                     initLedStatus()
-                    camera.start_recording('video.h264')
+                    now = datetime.datetime.now()
+                    filename = now.strftime('%Y-%m-%d_%H:%M:%S.h264')
+                    filepath = '/home/pi/Desktop/img/'+ filename
+                    camera.start_recording(filepath)
                     print('Start Recording')
                     recStat = True
                 

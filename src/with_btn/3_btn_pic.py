@@ -2,6 +2,7 @@
 import picamera            #picamera를 불러온다.
 import RPi.GPIO as GPIO    #GPIO 라이브러리
 from time import sleep     #sleep 라이브러리
+import datetime
 
 #보기 편하도록 미리 상수처럼 선언함
 HIGH = True                
@@ -38,28 +39,39 @@ def initLedStatus():
 
 initLedStatus()
 camera = picamera.PiCamera() # 카메라 ON
-
+camera.resolution = (1024, 768)
 
 print('Waiting for Button to Press')
 try:
     while True:
         if GPIO.input(Button) == LOW:
+            initLedStatus()
             if btnStat == HIGH:
-                print('push')
+                # print('push')
                 
                 if recStat == False:
+                    GPIO.output(LED, ON)
+                    # initLedStatus()
+                    # print('pic')
+                    now = datetime.datetime.now()
+                    filename = now.strftime('%Y-%m-%d_%H:%M:%S.jpg')
+                    filepath = '/home/pi/Desktop/img/'+ filename
+                    camera.capture(filepath)
+                    # print(filepath)
+                    # print('Start Recording')
+                    # recStat = True
+                    
+                        # ledStat = False
+                    sleep(1)
                     initLedStatus()
-                    camera.start_recording('video.h264')
-                    print('Start Recording')
-                    recStat = True
                 
                 else:
                     initLedStatus()
-                    camera.stop_recording()
+                    # camera.stop_recording()
                     print('Stop Recording')
                     recStat = False
                 
-                btnStat = LOW
+                # btnStat = LOW
 
             else:
                 if btnStat == LOW:
@@ -67,17 +79,17 @@ try:
                     btnStat = HIGH
 				
          
-            if recStat == True:
-                ledTimeCnt += 1
+            # if recStat == True:
+            #     ledTimeCnt += 1
      
-                if ledTimeCnt >= LEDBlankTime:
-                    ledTimeCnt = 0
-                    if ledStat == True:
-                        GPIO.output(LED, ON)
-                        ledStat = False
-                    else:
-                        GPIO.output(LED, OFF)
-                        ledStat = True
+            #     if ledTimeCnt >= LEDBlankTime:
+            #         ledTimeCnt = 0
+            #         if ledStat == True:
+            #             GPIO.output(LED, ON)
+            #             ledStat = False
+            #         else:
+            #             GPIO.output(LED, OFF)
+            #             ledStat = True
 					
             sleep(keyCheckTime)
 			
