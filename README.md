@@ -1,6 +1,34 @@
 # My_Raspberrypi
 raspberry pi test
 
+
+# raspi
+
+```
+# pic
+raspistill -o test.jpg
+raspistill -o test.jpg -t 10000 #10s, t는 밀리미터
+raspistill -vf -o test2.jpg #-vf는 상하반전, -hf는 좌우반전
+
+# video
+raspivid -o vid.h264 # 5s
+```
+
+## 포맷변경
+
+```
+# 설치
+sudo apt-get install -y gpac
+# 변환
+MP4Box -add vid3.h264 vid3.mp4
+# 재생
+omxplayer vid.h264
+```
+
+
+
+
+
 ## installation
 
 [opencv build shell script](./install/pi_opencv_build_1.sh)
@@ -26,3 +54,5 @@ raspberry pi test
 ```python
 python3 /usr/local/share/opencv4/samples/python/video.py
 ```
+
+
