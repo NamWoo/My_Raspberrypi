@@ -56,3 +56,18 @@ python3 /usr/local/share/opencv4/samples/python/video.py
 ```
 
 
+
+
+## 메모
+
+raspistill
+raspistill -o test.jpg
+raspistill -o test.jpg -t 10000  (10초 t는 밀리미터)
+raspistill -vf -o test2.jpg (-vf는 상하반전, -hf는 좌우반전)
+
+
+raspivid
+raspivid -o vid.h264
+기본 영상은 5초 정도 촬영
+
+
